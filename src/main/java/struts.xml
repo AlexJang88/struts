@@ -4,7 +4,17 @@
 
 <struts>
 	<package name="test" extends="struts-default">
-		<action name="hello" class="test.struts.action.TestAction">
+		<interceptors>
+			<interceptor name="dao" class="test.struts.interceptor.DAOInterceptor"></interceptor>
+		</interceptors>
+		<action name="hello" class="test.struts.action.HelloAction">
+			<interceptor-ref name="dao"></interceptor-ref>
+			<result>/WEB-INF/views/1116/hello.jsp</result>
+		</action>
+		
+		
+		
+		<action name="hello2" class="test.struts.action.TestAction">
 			<result>/WEB-INF/views/1116/hello.jsp</result>
 		</action>
 		<action name="test" class="test.struts.action.TestAction" method="action">
